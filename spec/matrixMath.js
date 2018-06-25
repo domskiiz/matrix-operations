@@ -1,5 +1,7 @@
 var det = require('../calculations/utils/twoByTwoDeterminant');
 var cp = require('../calculations/crossProduct')
+var mult = require('../calculations/multiply');
+var tr = require('../calculations/transpose');
 
 describe("Determinants", function() {
   it("Easy example", function() {
@@ -27,4 +29,21 @@ describe("CP", function() {
   it("3rd", function() {
     expect(cp([567, 32, 100], [-93, 24, 5])).toEqual([-2240, -12135, 16584]);
   });
+});
+
+
+describe("mult", function() {
+  it("First", function() {
+    expect(mult([[3, 2, 1], [3, 4, 6], [45, 4, 3]], [[8, 4], [5,0], [3,5]]))
+    .toEqual([[37, 17], [62, 42], [389, 195]]);
+  });
+
+});
+
+describe("tr", function() {
+  it("First", function() {
+    expect(tr([[3, 4, 5, 2], [2, 5, 1, 6]]))
+    .toEqual([[3, 2], [4, 5], [5, 1], [2, 6]]);
+  });
+
 });
