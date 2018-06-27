@@ -5,8 +5,8 @@ module.exports = function crossProduct(a, b) {
   /*
   * Check size of matricies.
   */
-  const size = [3];
-  if (math.size(a)[0] !== size[0] || math.size(b)[0] !== size[0]) {
+  const size = 3;
+  if (math.size(a)[0] !== size || math.size(b)[0] !== size) {
     throw Error('Size of matricies must be 1x3');
   }
 

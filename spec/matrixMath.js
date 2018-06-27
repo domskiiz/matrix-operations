@@ -2,6 +2,8 @@ var det = require('../calculations/utils/twoByTwoDeterminant');
 var cp = require('../calculations/crossProduct')
 var mult = require('../calculations/multiply');
 var tr = require('../calculations/transpose');
+var multc = require('../calculations/utils/multiplyMatrixByConst');
+var tp = require('../calculations/tensorProduct');
 
 describe("Determinants", function() {
   it("Easy example", function() {
@@ -45,5 +47,25 @@ describe("tr", function() {
     expect(tr([[3, 4, 5, 2], [2, 5, 1, 6]]))
     .toEqual([[3, 2], [4, 5], [5, 1], [2, 6]]);
   });
+});
 
+describe("multconst", function() {
+  it("First", function() {
+    expect(multc([[3, 4, 5, 2], [2, 5, 1, 6]], 2))
+    .toEqual([[6, 8, 10, 4], [4, 10, 2, 12]]);
+  });
+});
+
+describe("tp", function() {
+  it("First", function() {
+    expect(tp([[3, 4], [5, 6]], [[2, 1], [4, 0]]))
+    .toEqual([[6, 3, 8, 4], [12, 0, 16, 0], [10, 5, 12, 6], [20, 0, 24, 0]]);
+  });
+});
+
+describe("tp", function() {
+  it("Second", function() {
+    expect(tp([[1, 2, 3, 4, 5]],[[6], [7], [8]]))
+    .toEqual([[6, 12, 18, 24, 30], [7, 14, 21, 28, 35], [8, 16, 24, 32, 40]]);
+  });
 });
